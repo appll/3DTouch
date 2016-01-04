@@ -10,6 +10,9 @@
 
 @interface AppDelegate ()
 
+@property (nonatomic, strong) UIApplicationShortcutItem *currentShortItem;
+//@property (nonatomic, assign) int count;
+
 @end
 
 @implementation AppDelegate
@@ -17,7 +20,50 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    return YES;
+    
+    BOOL result = YES;
+//    _count = 0;
+    
+    //判断是否是从shortitem启动的程序
+    if (launchOptions[@"UIApplicationLaunchOptionsShortcutItemKey"]) {
+        _currentShortItem = launchOptions[@"UIApplicationLaunchOptionsShortcutItemKey"];
+        //这个返回值很重要、返回no，不会再调用performActionForShortcutItem这个回调方法
+        result = NO;
+    }
+    
+    //判断是否已经加载了shortitem、
+    NSArray *items = [UIApplication sharedApplication].shortcutItems;
+    if (items.count == 0) {
+        [self createShortIcon];
+    }
+    
+    return result;
+}
+
+-(void)createShortIcon{
+    NSString *bundleIdentifier = [NSBundle mainBundle].bundleIdentifier;
+    
+    UIApplicationShortcutIcon *shortIcon1 = [UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeSearch];
+    UIApplicationShortcutItem *shortItem1 = [[UIApplicationShortcutItem alloc] initWithType:[NSString stringWithFormat:@"%@.First", bundleIdentifier] localizedTitle:@"FirstItem" localizedSubtitle:nil icon:shortIcon1 userInfo:nil];
+    
+    UIApplicationShortcutIcon *shortIcon2 = [UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeCompose];
+    UIApplicationShortcutItem *shortItem2 = [[UIApplicationShortcutItem alloc] initWithType:[NSString stringWithFormat:@"%@.Second", bundleIdentifier] localizedTitle:@"SecondItem" localizedSubtitle:nil icon:shortIcon2 userInfo:nil];
+    
+    [[UIApplication sharedApplication] setShortcutItems:@[shortItem1, shortItem2]];
+}
+
+-(void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void (^)(BOOL))completionHandler{
+//    _count--;
+    [self handleItem:shortcutItem];
+}
+
+-(void)handleItem:(UIApplicationShortcutItem *)shortItem{
+    [self showAlert];
+}
+
+-(void)showAlert{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"aaa" message:[NSString stringWithFormat:@"%d", _count] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil, nil];
+    [alertView show];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -36,6 +82,10 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    if(!_currentShortItem) return;
+//    _count++;
+    [self handleItem:_currentShortItem];
+    _currentShortItem = nil;
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
