@@ -26,7 +26,9 @@
     return self;
 }
 
-//重按显示预览界面时，向上滑动出现的菜单选择
+//重按显示预览界面时，向上滑动出现的菜单选择、一定要在
+//-(UIViewController *)previewingContext:(id<UIViewControllerPreviewing>)previewingContext viewControllerForLocation:(CGPoint)location
+//回调返回的UIViewController中实现这个方法，不然无法显示菜单选项
 -(NSArray<id<UIPreviewActionItem>> *)previewActionItems{
     UIPreviewAction *action1 = [UIPreviewAction actionWithTitle:@"you" style:UIPreviewActionStyleDefault handler:^(UIPreviewAction * _Nonnull action, UIViewController * _Nonnull previewViewController) {
         UIViewController *vc = [UIViewController new];
