@@ -45,6 +45,7 @@
     }
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     cell.textLabel.text = _cellArr[indexPath.row];
+    //系统版本适配和是否支持3Dtouch的适配
     if(IOS_VERSION >= 9.0 && (self.traitCollection.forceTouchCapability == UIForceTouchCapabilityAvailable)) [self registerForPreviewingWithDelegate:self sourceView:cell];
     return cell;
 }

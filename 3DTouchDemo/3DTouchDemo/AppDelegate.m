@@ -25,6 +25,8 @@
     
     BOOL result = YES;
 //    _count = 0;
+    
+    //系统版本适配
     if(IOS_VERSION < 9.0) return result;
     //判断是否是从shortitem启动的程序
     if (launchOptions[@"UIApplicationLaunchOptionsShortcutItemKey"]) {
