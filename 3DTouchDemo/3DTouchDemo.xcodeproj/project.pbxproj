@@ -9,11 +9,12 @@
 /* Begin PBXBuildFile section */
 		DDE3B4641C3A447E000AE559 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DDE3B4631C3A447E000AE559 /* main.m */; };
 		DDE3B4671C3A447E000AE559 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DDE3B4661C3A447E000AE559 /* AppDelegate.m */; };
-		DDE3B46A1C3A447E000AE559 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDE3B4691C3A447E000AE559 /* ViewController.m */; };
+		DDE3B46A1C3A447E000AE559 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDE3B4691C3A447E000AE559 /* MainViewController.m */; };
 		DDE3B46D1C3A447E000AE559 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDE3B46B1C3A447E000AE559 /* Main.storyboard */; };
 		DDE3B46F1C3A447E000AE559 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDE3B46E1C3A447E000AE559 /* Assets.xcassets */; };
 		DDE3B4721C3A447E000AE559 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDE3B4701C3A447E000AE559 /* LaunchScreen.storyboard */; };
 		DDE3B47D1C3A447E000AE559 /* _DTouchDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DDE3B47C1C3A447E000AE559 /* _DTouchDemoTests.m */; };
+		DDE3B4891C3A6C11000AE559 /* PreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDE3B4881C3A6C11000AE559 /* PreviewViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,8 +32,8 @@
 		DDE3B4631C3A447E000AE559 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DDE3B4651C3A447E000AE559 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		DDE3B4661C3A447E000AE559 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		DDE3B4681C3A447E000AE559 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		DDE3B4691C3A447E000AE559 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		DDE3B4681C3A447E000AE559 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		DDE3B4691C3A447E000AE559 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		DDE3B46C1C3A447E000AE559 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DDE3B46E1C3A447E000AE559 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DDE3B4711C3A447E000AE559 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -40,6 +41,8 @@
 		DDE3B4781C3A447E000AE559 /* 3DTouchDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = 3DTouchDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDE3B47C1C3A447E000AE559 /* _DTouchDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _DTouchDemoTests.m; sourceTree = "<group>"; };
 		DDE3B47E1C3A447E000AE559 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DDE3B4871C3A6C11000AE559 /* PreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreviewViewController.h; sourceTree = "<group>"; };
+		DDE3B4881C3A6C11000AE559 /* PreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviewViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,13 +86,15 @@
 			children = (
 				DDE3B4651C3A447E000AE559 /* AppDelegate.h */,
 				DDE3B4661C3A447E000AE559 /* AppDelegate.m */,
-				DDE3B4681C3A447E000AE559 /* ViewController.h */,
-				DDE3B4691C3A447E000AE559 /* ViewController.m */,
+				DDE3B4681C3A447E000AE559 /* MainViewController.h */,
+				DDE3B4691C3A447E000AE559 /* MainViewController.m */,
 				DDE3B46B1C3A447E000AE559 /* Main.storyboard */,
 				DDE3B46E1C3A447E000AE559 /* Assets.xcassets */,
 				DDE3B4701C3A447E000AE559 /* LaunchScreen.storyboard */,
 				DDE3B4731C3A447E000AE559 /* Info.plist */,
 				DDE3B4621C3A447E000AE559 /* Supporting Files */,
+				DDE3B4871C3A6C11000AE559 /* PreviewViewController.h */,
+				DDE3B4881C3A6C11000AE559 /* PreviewViewController.m */,
 			);
 			path = 3DTouchDemo;
 			sourceTree = "<group>";
@@ -212,9 +217,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDE3B46A1C3A447E000AE559 /* ViewController.m in Sources */,
+				DDE3B46A1C3A447E000AE559 /* MainViewController.m in Sources */,
 				DDE3B4671C3A447E000AE559 /* AppDelegate.m in Sources */,
 				DDE3B4641C3A447E000AE559 /* main.m in Sources */,
+				DDE3B4891C3A6C11000AE559 /* PreviewViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

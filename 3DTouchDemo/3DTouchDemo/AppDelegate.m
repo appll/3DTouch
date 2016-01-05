@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 
+#define BundleId [NSBundle mainBundle].bundleIdentifier
+
 @interface AppDelegate ()
 
 @property (nonatomic, strong) UIApplicationShortcutItem *currentShortItem;
@@ -31,7 +33,7 @@
         result = NO;
     }
     
-    //判断是否已经加载了shortitem、
+    //判断是否已经创建了shortitem、
     NSArray *items = [UIApplication sharedApplication].shortcutItems;
     if (items.count == 0) {
         [self createShortIcon];
@@ -41,13 +43,13 @@
 }
 
 -(void)createShortIcon{
-    NSString *bundleIdentifier = [NSBundle mainBundle].bundleIdentifier;
+//    NSString *bundleIdentifier = BundleId;[NSBundle mainBundle].bundleIdentifier
     
     UIApplicationShortcutIcon *shortIcon1 = [UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeSearch];
-    UIApplicationShortcutItem *shortItem1 = [[UIApplicationShortcutItem alloc] initWithType:[NSString stringWithFormat:@"%@.First", bundleIdentifier] localizedTitle:@"FirstItem" localizedSubtitle:nil icon:shortIcon1 userInfo:nil];
+    UIApplicationShortcutItem *shortItem1 = [[UIApplicationShortcutItem alloc] initWithType:[NSString stringWithFormat:@"%@.First", BundleId] localizedTitle:@"FirstItem" localizedSubtitle:nil icon:shortIcon1 userInfo:nil];
     
     UIApplicationShortcutIcon *shortIcon2 = [UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeCompose];
-    UIApplicationShortcutItem *shortItem2 = [[UIApplicationShortcutItem alloc] initWithType:[NSString stringWithFormat:@"%@.Second", bundleIdentifier] localizedTitle:@"SecondItem" localizedSubtitle:nil icon:shortIcon2 userInfo:nil];
+    UIApplicationShortcutItem *shortItem2 = [[UIApplicationShortcutItem alloc] initWithType:[NSString stringWithFormat:@"%@.Second", BundleId] localizedTitle:@"SecondItem" localizedSubtitle:nil icon:shortIcon2 userInfo:nil];
     
     [[UIApplication sharedApplication] setShortcutItems:@[shortItem1, shortItem2]];
 }
@@ -58,11 +60,17 @@
 }
 
 -(void)handleItem:(UIApplicationShortcutItem *)shortItem{
+    //处理shortitem事件
+    if ([shortItem.type isEqualToString:[NSString stringWithFormat:@"%@.First", BundleId]]) {
+        NSLog(@"First Item---");
+    }else if ([shortItem.type isEqualToString:[NSString stringWithFormat:@"%@.Second", BundleId]]){
+        NSLog(@"Second Item---");
+    }
     [self showAlert];
 }
 
 -(void)showAlert{
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"aaa" message:[NSString stringWithFormat:@"%d", _count] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil, nil];
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"aaa" message:[NSString stringWithFormat:@"%d", 22] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil, nil];
     [alertView show];
 }
 

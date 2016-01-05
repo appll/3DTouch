@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  PreviewViewController.h
 //  3DTouchDemo
 //
 //  Created by App on 1/4/16.
@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface PreviewViewController : UIViewController
 
+-(instancetype)initWithTitle:(NSString *)title;
 
 @end
-
