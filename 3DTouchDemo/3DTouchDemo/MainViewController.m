@@ -8,6 +8,7 @@
 
 #import "MainViewController.h"
 #import "PreviewViewController.h"
+#import "AppDelegate.h"
 
 @interface MainViewController ()<UIViewControllerPreviewingDelegate>
 
@@ -44,7 +45,7 @@
     }
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     cell.textLabel.text = _cellArr[indexPath.row];
-    [self registerForPreviewingWithDelegate:self sourceView:cell];
+    if(IOS_VERSION >= 9.0 && (self.traitCollection.forceTouchCapability == UIForceTouchCapabilityAvailable)) [self registerForPreviewingWithDelegate:self sourceView:cell];
     return cell;
 }
 

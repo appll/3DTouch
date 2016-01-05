@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#define IOS_VERSION [[[UIDevice currentDevice] systemVersion] floatValue]
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
